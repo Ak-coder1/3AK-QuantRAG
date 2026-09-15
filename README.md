@@ -150,7 +150,7 @@ The numbered edges in the diagram trace the strict multi-agent execution pipelin
 ## 4.1 Knowledge Base / RAG Architecture
 - **Sources:** `docs/`, `context/`, `AGENT_CONTEXT.md`, `issues_log.md`, Strategy definitions.
 - **Storage Format:** Embeddings are stored natively inside DuckDB as 1024-dimensional floating point arrays (`FLOAT[1024]`) alongside their raw text and JSON metadata in a single `kb_docs` table.
-- **Hybrid Retrieval & Reading:** We use **DuckDB** with the official **`vss` (Vector Similarity Search)** extension. It reads the vectors directly via SQL using the `array_cosine_similarity(embedding, query_embedding)` function. To guarantee exact acronym matching (e.g., `SVRO`, `MIP8`), the retriever dynamically parses the query for uppercase acronyms and injects a `CASE WHEN content ILIKE '%<KEYWORD>%'` SQL clause to instantly boost the semantic score natively within DuckDB. This completely eliminates the need for complex external vector databases (Chroma/LanceDB) while keeping the document index logically independent from the analytical tables.
+- **Hybrid Retrieval & Reading:** We use **DuckDB** with the official **`vss` (Vector Similarity Search)** extension. It reads the vectors directly via SQL using the `array_cosine_similarity(embedding, query_embedding)` function. To guarantee exact acronym matching (e.g., `ORB`, `MIP8`), the retriever dynamically parses the query for uppercase acronyms and injects a `CASE WHEN content ILIKE '%<KEYWORD>%'` SQL clause to instantly boost the semantic score natively within DuckDB. This completely eliminates the need for complex external vector databases (Chroma/LanceDB) while keeping the document index logically independent from the analytical tables.
 - **MD5 Incremental Ingestion Cache:** Re-embedding large markdown files on every startup is computationally expensive. The ingestion script (`ingest_docs.py`) maintains an `ingest_hashes.json` state file. It computes an MD5 hash of each document and only triggers the HuggingFace embedding model if the file's structural content has actually changed, reducing update times from minutes to milliseconds.
 
 ## 4.2 Structured Data Architecture
@@ -174,7 +174,7 @@ source_table: stocks
 ## 4.4 Strategy Knowledge Registry
 Maintain a machine-readable strategy registry alongside prose documents to avoid LLMs misinterpreting rules.
 ```yaml
-strategy: SVRO
+strategy: ORB
 version: V1
 entry:
   - strong_start
@@ -219,10 +219,10 @@ Instead of unconstrained "agentic reasoning," queries are executed via explicit,
 **Flow:**
 `Intent` → `Entity extraction` → `Time/as-of resolution` → `Plan generation` → `Tool selection` → `Execution` → `Evidence aggregation` → `Validation` → `Answer`
 
-**Example:** *"Why didn't RELIANCE qualify for SVRO yesterday?"*
+**Example:** *"Why didn't RELIANCE qualify for ORB yesterday?"*
 ```json
 {
-  "strategy": "SVRO",
+  "strategy": "ORB",
   "symbol": "RELIANCE",
   "date": "2026-09-12",
   "steps": [
@@ -268,7 +268,7 @@ Attempting to fix this via "Prompt Engineering" is brittle and wastes inference 
 # 6. Evaluation Framework
 Because the system strictly adheres to "Correctness over Cleverness", a foundational evaluation suite has been established in `finchat/evaluation/benchmark_suite.json`. We categorize and measure correctness across 5 distinct metric vectors:
 
-1. **Knowledge Correctness (`KNOWLEDGE_01`):** Tests whether the RAG engine retrieves exact canonical strategy definitions (e.g., SVRO rules) without hallucinating parameters.
+1. **Knowledge Correctness (`KNOWLEDGE_01`):** Tests whether the RAG engine retrieves exact canonical strategy definitions (e.g., ORB rules) without hallucinating parameters.
 2. **Data Accuracy (`DATA_01`):** Validates deterministic DuckDB execution against raw tabular data (e.g., "What was RELIANCE's close on X date?").
 3. **Analytical Correctness (`ANALYTICAL_01`):** Ensures generated SQL correctly aggregates, groups, and filters datasets without logic errors.
 4. **Temporal Awareness (`TEMPORAL_01`):** Evaluates Look-Ahead Bias guardrails. Tricking the LLM into answering questions about "today" when data only exists for "yesterday" must trigger a rejection based on the Data Freshness Contract.
