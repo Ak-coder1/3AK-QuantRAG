@@ -1,3 +1,8 @@
+# -------------------------------------------------------------------
+# 3AK-QuantRAG
+# https://github.com/Ak-coder1/3AK-QuantRAG
+# -------------------------------------------------------------------
+
 from finchat.config.llm import get_llm_client
 
 class IntentRouter:

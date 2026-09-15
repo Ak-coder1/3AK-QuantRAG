@@ -1,3 +1,8 @@
+# -------------------------------------------------------------------
+# 3AK-QuantRAG
+# https://github.com/Ak-coder1/3AK-QuantRAG
+# -------------------------------------------------------------------
+
 import os
 import yaml
 from typing import Dict, List, Any

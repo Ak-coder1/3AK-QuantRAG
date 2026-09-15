@@ -1,3 +1,8 @@
+# -------------------------------------------------------------------
+# 3AK-QuantRAG
+# https://github.com/Ak-coder1/3AK-QuantRAG
+# -------------------------------------------------------------------
+
 import json
 import urllib.request
 from typing import List

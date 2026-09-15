@@ -7,6 +7,8 @@
 **Email:** [akash.dglass@gmail.com](mailto:akash.dglass@gmail.com)  
 **Primary Goal:** Serve as a deterministic, natural-language intelligence layer over your trading ecosystem. It strictly enforces correctness, safety, and evidence-backed provenance without weakening the independence of the underlying quantitative system.
 
+**Disclaimer:** This repository provides the core architectural framework to set up a multi-agent RAG system. However, to make it work effectively for your specific data store, you must tune the models and configure the data and system parameters according to your unique needs to reap the most benefits and make it run like a true chatbot. Every trading context and dataset is different, so out-of-the-box generalization is not possible.
+
 ---
 
 ## 1. Executive Summary

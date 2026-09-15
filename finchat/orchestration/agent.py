@@ -1,3 +1,8 @@
+# -------------------------------------------------------------------
+# 3AK-QuantRAG
+# https://github.com/Ak-coder1/3AK-QuantRAG
+# -------------------------------------------------------------------
+
 from finchat.orchestration.router import IntentRouter
 from finchat.data.sql_agent import DeterministicQueryEngine
 from finchat.data.live_gateway import LiveToolGateway

@@ -1,3 +1,8 @@
+# -------------------------------------------------------------------
+# 3AK-QuantRAG
+# https://github.com/Ak-coder1/3AK-QuantRAG
+# -------------------------------------------------------------------
+
 import duckdb
 from typing import List, Dict, Any
 

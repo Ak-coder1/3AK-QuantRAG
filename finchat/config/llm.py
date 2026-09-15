@@ -1,3 +1,8 @@
+# -------------------------------------------------------------------
+# 3AK-QuantRAG
+# https://github.com/Ak-coder1/3AK-QuantRAG
+# -------------------------------------------------------------------
+
 import json
 import urllib.request
 import urllib.error
@@ -221,6 +226,7 @@ class GroqClient:
         payload = {
             "model": self.model_name,
             "temperature": temperature,
+            "max_tokens": 1024,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": prompt}
