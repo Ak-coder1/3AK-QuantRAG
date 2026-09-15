@@ -1,0 +1,17 @@
+# 3AK-QuantRAG Configuration
+# Copy this file to your active environment and add your keys
+
+paths:
+  data_dir: "data/parquet"
+  docs_dir: "docs/"
+  context_dir: "context/"
+
+api:
+  live_api_url: "http://localhost:5000/api"
+
+llm:
+  provider: "local" # options: local, cloud
+  keys:
+    gcp: "YOUR_GCP_KEY"
+    anthropic: "YOUR_ANTHROPIC_KEY"
+    groq: "YOUR_GROQ_KEY"
