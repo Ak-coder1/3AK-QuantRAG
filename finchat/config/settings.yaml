@@ -1,0 +1,6 @@
+# 3AK-QuantRAG Configuration
+# Copy this file to settings.yaml (ignored in git) and add your keys
+keys:
+  gcp: "YOUR_GCP_KEY"
+  anthropic: "YOUR_ANTHROPIC_KEY"
+  groq: "YOUR_GROQ_KEY"
