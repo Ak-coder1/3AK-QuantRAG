@@ -4,6 +4,7 @@
 **Version:** 2.0  
 **Date:** 2026-09-13  
 **Author:** [Akash Katare](https://www.linkedin.com/in/akash-katare)
+**Email:** [akash.dglass@gmail.com](mailto:akash.dglass@gmail.com)
 **Primary Goal:** Serve as a deterministic, natural-language intelligence layer over the your trading ecosystem. It strictly enforces correctness, safety, and evidence-backed provenance without weakening the independence of the underlying quantitative system.
 
 ---
