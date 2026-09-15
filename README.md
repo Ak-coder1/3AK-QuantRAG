@@ -288,21 +288,7 @@ Because the system strictly adheres to "Correctness over Cleverness", a foundati
 
 ---
 
-# 8. Implementation Phases
-
-1. **PHASE 0 (Foundation & Contracts):** [x] Inventory data, define Source of Truth hierarchy, establish Data Freshness contracts, create evaluation question set.
-2. **PHASE 1 (Semantic Data + Strategy Registry):** [x] Build the Semantic Data Catalog, formalize machine-readable strategy YAMLs.
-3. **PHASE 2 (Evidence & Deterministic Query Engine):** [x] Build the Read-only DuckDB SQL agent, SQL validators, and the Dedicated Evidence Object pipeline.
-4. **PHASE 3 (Knowledge RAG):** [x] Local embeddings, hybrid retrieval (dense + sparse keyword boosting), incremental MD5 hashing updates, Ollama integration.
-5. **PHASE 4 (Analytical Chat):** [x] Wire the orchestrator to dynamically query DuckDB via LLM-generated SQL. The engine scans `data/parquet/` to dynamically mount all available files into memory, automatically mapping edge-case columns (e.g. `key AS symbol`) to ensure bulletproof JOIN operations across tables.
-6. **PHASE 5 (Hybrid Strategy Intelligence):** [x] Explicit query planning, Strategy → Data lookup, deterministic rule evaluation. Auto-Healing pipelines seamlessly repair schema alias errors natively.
-7. **PHASE 6 (Live your trading system Intelligence):** [x] The `LiveToolGateway` connects the `CopilotOrchestrator` directly to the `ChartingClient` REST API (`/api/tm/overview`, `/api/tm/positions`, `/api/tm/ptrades`, and `/api/tm/audit`). This allows the LLM to synthesize real-time portfolio metrics, active position states, un-realized PnL, pending trades, and execution logs based on live broker connections when the `live_api` intent is triggered.
-8. **PHASE 7 (UI / ChartingClient):** [x] 3AK-QuantRAG UI tab, streaming responses, evidence panels.
-9. **PHASE 8 (Controlled Actions):** [SKIPPED] Action proposals, human approval, execution gateway. (Explicitly skipped per user instruction to strictly isolate the LLM from any live-order or write capabilities due to risk).
-
----
-
-# 9. Success Criteria
+# 8. Success Criteria
 - **Knowledge accuracy:** ≥95% accuracy on curated your trading system documentation questions.
 - **Data accuracy:** ≥99% correctness on deterministic benchmark queries.
 - **SQL safety:** 100% rejection of prohibited write operations in the test suite.
@@ -311,7 +297,7 @@ Because the system strictly adheres to "Correctness over Cleverness", a foundati
 
 ---
 
-# 10. Repository Structure
+# 9. Repository Structure
 
 ```text
 your trading system/
